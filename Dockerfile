@@ -1,62 +1,43 @@
-# syntax = docker/dockerfile:1
+FROM ruby:3.1.6-slim
 
-# Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
-ARG RUBY_VERSION=3.1.6
-FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
-
-# Rails app lives here
-WORKDIR /rails
-
-# Set production environment
-ENV RAILS_ENV="production" \
-    BUNDLE_DEPLOYMENT="1" \
-    BUNDLE_PATH="/usr/local/bundle" \
-    BUNDLE_WITHOUT="development"
-
-
-# Throw-away build stage to reduce size of final image
-FROM base as build
-
-# Install packages needed to build gems
+# Instala pacotes necessários
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libpq-dev libvips pkg-config
+    apt-get install -y --no-install-recommends \
+    build-essential \
+    git \
+    libpq-dev \
+    postgresql-client \
+    nodejs \
+    curl \
+    libvips \
+    pkg-config \
+    dos2unix && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Install application gems
+# Define o diretório de trabalho
+WORKDIR /app
+
+# Copia os arquivos de dependências
 COPY Gemfile Gemfile.lock ./
-RUN bundle install && \
-    rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
-    bundle exec bootsnap precompile --gemfile
 
-# Copy application code
+# Instala as gems
+RUN bundle install
+
+# Copia o código-fonte
 COPY . .
 
-# Precompile bootsnap code for faster boot times
-RUN bundle exec bootsnap precompile app/ lib/
+# Corrige finais de linha Windows (CRLF) para Unix (LF)
+RUN dos2unix entrypoint.sh && \
+    dos2unix bin/* && \
+    find . -name "*.rb" -type f -exec dos2unix {} \; && \
+    chmod +x entrypoint.sh bin/*
 
-# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+# Cria diretórios necessários
+RUN mkdir -p tmp/pids
 
-
-# Final stage for app image
-FROM base
-
-# Install packages needed for deployment
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libvips postgresql-client && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
-# Copy built artifacts: gems, application
-COPY --from=build /usr/local/bundle /usr/local/bundle
-COPY --from=build /rails /rails
-
-# Run and own only the runtime files as a non-root user for security
-RUN useradd rails --create-home --shell /bin/bash && \
-    chown -R rails:rails db log storage tmp
-USER rails:rails
-
-# Entrypoint prepares the database.
-ENTRYPOINT ["/rails/bin/docker-entrypoint"]
-
-# Start the server by default, this can be overwritten at runtime
+# Expõe a porta 3000
 EXPOSE 3000
-CMD ["./bin/rails", "server"]
+
+# Define o comando de entrada
+CMD ["bash", "./entrypoint.sh"]

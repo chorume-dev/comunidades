@@ -1,26 +1,38 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-6" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  
   <div>
-    <%= f.label :email, class: "block text-sm/6 font-medium text-gray-900" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" %>
+    <%= f.label :email, "Email", class: "block text-sm font-medium leading-6 text-gray-900" %>
+    <div class="mt-2">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", 
+          placeholder: "seu@email.com",
+          class: "block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+    </div>
   </div>
-  <div class="mt-2">
-    <%= f.label :password, class: "block text-sm/6 font-medium text-gray-900" %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %>
-    <%= f.password_field :password, autocomplete: "new-password", class: "block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" %>
+  
+  <div>
+    <%= f.label :password, "Senha", class: "block text-sm font-medium leading-6 text-gray-900" %>
+    <div class="mt-2">
+      <%= f.password_field :password, autocomplete: "current-password", 
+          placeholder: "••••••••",
+          class: "block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+    </div>
   </div>
+  
   <% if devise_mapping.rememberable? %>
-    <div class="mt-4">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <%= f.check_box :remember_me, class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" %>
+        <%= f.label :remember_me, "Lembrar de mim", class: "ml-2 block text-sm text-gray-900" %>
+      </div>
     </div>
   <% end %>
-  <div class="mt-4">
-    <%= f.submit "Login", class: "flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+  
+  <div>
+    <%= f.submit "Entrar", class: "flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
   </div>
-  <div class="mt-4">
+  
+  <div>
     <%= render "devise/shared/links" %>
   </div>
 <% end %>

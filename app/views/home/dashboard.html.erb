@@ -1,0 +1,72 @@
+<div class="bg-white py-8">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:mx-0">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Bem-vindo, <%= current_user.email %></h2>
+      <p class="mt-2 text-lg leading-8 text-gray-600">
+        É bom ter você de volta na nossa plataforma de comunidades para desenvolvedores.
+      </p>
+    </div>
+  </div>
+  
+  <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-10">
+    <dl class="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+      <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+        <dt class="text-base leading-7 text-gray-600">Comunidades de Dev</dt>
+        <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">0</dd>
+      </div>
+      <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+        <dt class="text-base leading-7 text-gray-600">Mensagens</dt>
+        <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">0</dd>
+      </div>
+      <div class="mx-auto flex max-w-xs flex-col gap-y-4">
+        <dt class="text-base leading-7 text-gray-600">Conexões com Devs</dt>
+        <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">0</dd>
+      </div>
+    </dl>
+  </div>
+  
+  <div class="mx-auto max-w-7xl px-6 lg:px-8 mt-16">
+    <div class="mx-auto max-w-2xl rounded-3xl ring-1 ring-gray-200 lg:mx-0 lg:flex lg:max-w-none">
+      <div class="p-8 sm:p-10 lg:flex-auto">
+        <h3 class="text-2xl font-bold tracking-tight text-gray-900">Atividades recentes</h3>
+        <p class="mt-6 text-base leading-7 text-gray-600">
+          Você ainda não tem atividades recentes. Comece criando uma comunidade de desenvolvedores ou conectando-se com outros programadores.
+        </p>
+        <div class="mt-10 flex items-center gap-x-4">
+          <h4 class="flex-none text-sm font-semibold leading-6 text-indigo-600">O que você deseja fazer agora?</h4>
+          <div class="h-px flex-auto bg-gray-100"></div>
+        </div>
+        <ul role="list" class="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6">
+          <li class="flex gap-x-3">
+            <i class="fas fa-check h-6 w-5 flex-none text-indigo-600"></i>
+            <span>Criar uma nova comunidade de desenvolvedores</span>
+          </li>
+          <li class="flex gap-x-3">
+            <i class="fas fa-check h-6 w-5 flex-none text-indigo-600"></i>
+            <span>Explorar comunidades de tecnologia existentes</span>
+          </li>
+          <li class="flex gap-x-3">
+            <i class="fas fa-check h-6 w-5 flex-none text-indigo-600"></i>
+            <span>Atualizar seu perfil de desenvolvedor</span>
+          </li>
+          <li class="flex gap-x-3">
+            <i class="fas fa-check h-6 w-5 flex-none text-indigo-600"></i>
+            <span>Convidar amigos</span>
+          </li>
+        </ul>
+      </div>
+      <div class="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+        <div class="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+          <div class="mx-auto max-w-xs px-8">
+            <p class="text-base font-semibold text-gray-600">Crie sua primeira comunidade de desenvolvedores</p>
+            <p class="mt-6 flex items-baseline justify-center gap-x-2">
+              <span class="text-5xl font-bold tracking-tight text-gray-900">Grátis</span>
+            </p>
+            <a href="#" class="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Criar comunidade</a>
+            <p class="mt-6 text-xs leading-5 text-gray-600">Comece agora e conecte-se com desenvolvedores que compartilham suas tecnologias e interesses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

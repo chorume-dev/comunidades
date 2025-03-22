@@ -1,14 +1,41 @@
 version: "3.9"
 
 services:
+  web:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/tmp
+      - /app/log
+      - /app/node_modules
+    environment:
+      - RAILS_ENV=development
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/comunidades_development
+    depends_on:
+      - db
+    networks:
+      - chorume_net
+    stdin_open: true
+    tty: true
+
   db:
     image: postgres:13
-    ports:
-      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - chorume_net
+
 volumes:
   postgres_data:
+
+networks:
+  chorume_net:
+    driver: bridge

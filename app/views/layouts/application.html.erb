@@ -1,17 +1,55 @@
 <!DOCTYPE html>
-<html class="h-full bg-white">
+<html class="h-full bg-gray-50">
   <head>
-    <title>Comunidades</title>
+    <title>comunidades.dev</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
   <body class="h-full">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="min-h-full">
+      <nav class="bg-indigo-600">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 items-center justify-between">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <h1 class="text-white text-2xl font-bold">comunidades.dev</h1>
+              </div>
+              <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-4">
+                  <%= link_to "Início", root_path, class: "text-white hover:bg-indigo-500 hover:bg-opacity-75 rounded-md px-3 py-2 text-sm font-medium" %>
+                  <% if user_signed_in? %>
+                    <%= link_to "Meu Perfil", edit_user_registration_path, class: "text-white hover:bg-indigo-500 hover:bg-opacity-75 rounded-md px-3 py-2 text-sm font-medium" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="hidden md:block">
+              <div class="ml-4 flex items-center md:ml-6">
+                <% if user_signed_in? %>
+                  <%= button_to "Sair", destroy_user_session_path, method: :delete, class: "text-white bg-indigo-700 hover:bg-indigo-800 rounded-md px-3 py-2 text-sm font-medium" %>
+                <% else %>
+                  <%= link_to "Entrar", new_user_session_path, class: "text-white hover:bg-indigo-500 hover:bg-opacity-75 rounded-md px-3 py-2 text-sm font-medium" %>
+                  <%= link_to "Cadastrar", new_user_registration_path, class: "text-white bg-indigo-700 hover:bg-indigo-800 rounded-md px-3 py-2 text-sm font-medium ml-2" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+      <% if notice %>
+        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4 mx-4 mt-4" role="alert"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4 mx-4 mt-4" role="alert"><%= alert %></div>
+      <% end %>
+      
+      <%= yield %>
+    </div>
   </body>
 </html>

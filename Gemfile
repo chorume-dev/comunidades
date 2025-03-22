@@ -79,3 +79,6 @@ end
 gem 'dotenv'
 
 gem "devise", "~> 4.9"
+
+# GitHub API client
+gem 'octokit', '~> 6.1'

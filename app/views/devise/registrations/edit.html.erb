@@ -1,43 +1,208 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="mx-auto max-w-7xl px-6 lg:px-8 mt-16">
+  <div class="mx-auto max-w-2xl rounded-3xl ring-1 ring-gray-200 lg:mx-0 lg:flex lg:max-w-none overflow-hidden">
+    <div class="p-8 sm:p-10 lg:flex-auto">
+      <h3 class="text-2xl font-bold tracking-tight text-gray-900 flex items-center"><i class="fas fa-cogs text-indigo-600 mr-3"></i>Preferências de Desenvolvedor</h3>
+      <p class="mt-6 text-base leading-7 text-gray-600">
+        Configure suas preferências e personalize sua experiência na comunidades.dev
+      </p>
+      <div class="mt-10 flex items-center gap-x-4">
+        <h4 class="flex-none text-sm font-semibold leading-6 text-indigo-600 flex items-center"><i class="fas fa-code-branch mr-2"></i>Tecnologias de Interesse</h4>
+        <div class="h-px flex-auto bg-gray-100 opacity-75"></div>
+      </div>
+      <ul role="list" class="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6">
+        <li class="flex gap-x-3 bg-gray-50 p-3 rounded-lg hover:bg-indigo-50 transition-colors group">
+          <i class="fas fa-laptop-code h-6 w-5 flex-none text-indigo-600 group-hover:text-indigo-500"></i>
+          <span class="group-hover:text-indigo-700">Frontend (React, Vue, Angular)</span>
+        </li>
+        <li class="flex gap-x-3 bg-gray-50 p-3 rounded-lg hover:bg-indigo-50 transition-colors group">
+          <i class="fas fa-server h-6 w-5 flex-none text-indigo-600 group-hover:text-indigo-500"></i>
+          <span class="group-hover:text-indigo-700">Backend (Ruby, Python, Node.js)</span>
+        </li>
+        <li class="flex gap-x-3 bg-gray-50 p-3 rounded-lg hover:bg-indigo-50 transition-colors group">
+          <i class="fas fa-mobile-alt h-6 w-5 flex-none text-indigo-600 group-hover:text-indigo-500"></i>
+          <span class="group-hover:text-indigo-700">Mobile (iOS, Android, React Native)</span>
+        </li>
+        <li class="flex gap-x-3 bg-gray-50 p-3 rounded-lg hover:bg-indigo-50 transition-colors group">
+          <i class="fas fa-database h-6 w-5 flex-none text-indigo-600 group-hover:text-indigo-500"></i>
+          <span class="group-hover:text-indigo-700">Dados (SQL, NoSQL, ETL)</span>
+        </li>
+      </ul>
+    </div>
+    <div class="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+      <div class="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16 shadow-sm hover:shadow-md transition-all">
+        <div class="mx-auto max-w-xs px-8">
+          <div class="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-sm font-medium text-indigo-700 mb-4 ring-1 ring-indigo-100">
+            <i class="fas fa-user-shield mr-1"></i> Status do Perfil
+          </div>
+          <p class="mt-4 flex items-baseline justify-center gap-x-2">
+            <span class="text-5xl font-bold tracking-tight text-gray-900">Dev</span>
+            <span class="text-sm font-semibold leading-6 tracking-wide text-gray-600">/ ativo</span>
+          </p>
+          <a href="#" class="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Solicitar verificação</a>
+          <p class="mt-6 text-xs leading-5 text-gray-600">Aumente sua credibilidade com um perfil verificado de desenvolvedor.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="mx-auto max-w-7xl px-6 lg:px-8 mt-16 mb-24 relative">
+  <!-- Elemento decorativo -->
+  <div class="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl" aria-hidden="true">
+    <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-indigo-300 to-purple-600 opacity-10 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+  <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+    <div class="bg-gradient-to-r from-indigo-600 to-indigo-800 px-8 py-6">
+      <h3 class="text-xl font-bold text-white flex items-center">
+        <i class="fas fa-chart-line mr-2"></i>Suas estatísticas
+      </h3>
+      <p class="text-indigo-100 text-sm mt-1">Acompanhe seu progresso na comunidades.dev</p>
+    </div>
+    
+    <dl class="grid grid-cols-1 gap-x-8 gap-y-12 text-center lg:grid-cols-3 p-8">
+      <div class="mx-auto flex max-w-xs flex-col gap-y-4 p-6 rounded-xl hover:bg-gray-50 transition-colors">
+        <dt class="text-base leading-7 text-gray-600 flex items-center justify-center"><i class="fas fa-code-commit text-indigo-600 mr-2"></i>Contribuições</dt>
+        <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">0</dd>
+      </div>
+      <div class="mx-auto flex max-w-xs flex-col gap-y-4 p-6 rounded-xl hover:bg-gray-50 transition-colors">
+        <dt class="text-base leading-7 text-gray-600 flex items-center justify-center"><i class="fas fa-star text-indigo-600 mr-2"></i>Reputação</dt>
+        <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">0</dd>
+      </div>
+      <div class="mx-auto flex max-w-xs flex-col gap-y-4 p-6 rounded-xl hover:bg-gray-50 transition-colors">
+        <dt class="text-base leading-7 text-gray-600 flex items-center justify-center"><i class="fas fa-users text-indigo-600 mr-2"></i>Comunidades</dt>
+        <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">0</dd>
+      </div>
+    </dl>
+    
+    <div class="text-center bg-gray-50 p-6 ring-1 ring-inset ring-gray-200/50 border-t-0">
+      <p class="text-base text-gray-600">Uma vez que você se juntar a comunidades ou fizer contribuições, suas estatísticas aparecerão aqui.</p>
+      <p class="mt-2 text-sm text-gray-500 flex items-center justify-center"><i class="fas fa-info-circle text-indigo-500 mr-1"></i>Participe ativamente para aumentar sua reputação na plataforma.</p>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+<div class="mx-auto max-w-7xl px-6 lg:px-8 mt-16 mb-24 relative">
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-8 mb-10">
+    <div class="mx-auto max-w-2xl mb-12">
+      <div class="flex items-center space-x-3">
+        <div class="flex-shrink-0 h-12 w-12 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+          <i class="fas fa-code text-white text-xl"></i>
+        </div>
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Dados do Desenvolvedor</h1>
+          <p class="text-lg text-gray-600">Gerencie suas dados de perfil.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-2xl bg-white p-8 rounded-2xl shadow-xl ring-1 ring-gray-200 transition-all hover:shadow-2xl">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "space-y-6" }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div>
+          <div class="flex items-center">
+            <i class="fas fa-envelope text-indigo-600 mr-2"></i>
+            <%= f.label :email, class: "block text-sm font-medium leading-6 text-gray-900" %>
+          </div>
+          <div class="mt-2">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", 
+                class: "block w-full rounded-lg border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 sm:text-sm sm:leading-6 transition-all" %>
+          </div>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div class="rounded-lg bg-blue-50 p-4 ring-1 ring-blue-100">
+            <div class="flex items-center">
+              <i class="fas fa-info-circle text-blue-600 mr-2 mt-1"></i>
+              <div class="ml-3 flex-1 md:flex md:justify-between">
+                <p class="text-sm text-blue-700">Aguardando confirmação para: <%= resource.unconfirmed_email %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="relative">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full h-px bg-gray-100"></div>
+          </div>
+          <div class="relative flex justify-start">
+            <span class="bg-white pr-3 text-base font-semibold leading-6 text-indigo-600 pl-2">Alterar senha</span>
+          </div>
+          <p class="mt-1 text-sm leading-6 text-gray-500">Deixe em branco se não quiser alterar sua senha.</p>
+        </div>
+
+        <div>
+          <div class="flex items-center">
+            <i class="fas fa-lock text-indigo-600 mr-2"></i>
+            <%= f.label :password, "Nova senha", class: "block text-sm font-medium leading-6 text-gray-900" %>
+          </div>
+          <div class="mt-2">
+            <%= f.password_field :password, autocomplete: "new-password", 
+                class: "block w-full rounded-lg border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 sm:text-sm sm:leading-6 transition-all" %>
+            <% if @minimum_password_length %>
+              <p class="mt-2 text-sm text-gray-500"><i class="fas fa-info-circle mr-1"></i>Mínimo de <%= @minimum_password_length %> caracteres</p>
+            <% end %>
+            <div class="mt-4">
+              <%= f.button "Salvar senha", type: "submit", class: "inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center">
+            <i class="fas fa-shield-alt text-indigo-600 mr-2"></i>
+            <%= f.label :password_confirmation, "Confirmar nova senha", class: "block text-sm font-medium leading-6 text-gray-900" %>
+          </div>
+          <div class="mt-2">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", 
+                class: "block w-full rounded-lg border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 sm:text-sm sm:leading-6 transition-all" %>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full h-px bg-gray-100"></div>
+          </div>
+          <div class="relative flex justify-start">
+            <span class="bg-white pr-3 text-base font-semibold leading-6 text-indigo-600 pl-2">Confirmar alterações</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center">
+            <i class="fas fa-key text-indigo-600 mr-2"></i>
+            <%= f.label :current_password, "Senha atual", class: "block text-sm font-medium leading-6 text-gray-900" %>
+          </div>
+          <div class="mt-2">
+            <%= f.password_field :current_password, autocomplete: "current-password", 
+                class: "block w-full rounded-lg border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 sm:text-sm sm:leading-6 transition-all" %>
+            <p class="mt-2 text-sm text-gray-500"><i class="fas fa-exclamation-circle mr-1"></i>Precisamos da sua senha atual para confirmar as alterações</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end mt-8 gap-x-6">
+          <%= f.submit "Atualizar perfil", class: "rounded-lg bg-gradient-to-r from-indigo-600 to-indigo-800 px-4 py-2.5 text-sm font-semibold text-white shadow-md hover:from-indigo-500 hover:to-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-all hover:shadow-lg" %>
+        </div>
+      <% end %>
+
+      <div class="relative mt-10">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+          <div class="w-full h-px bg-gray-100"></div>
+        </div>
+        <div class="relative flex justify-start">
+          <span class="bg-white pr-3 text-base font-semibold leading-6 text-red-600 pl-2">Zona de perigo</span>
+        </div>
+        <div class="mt-4 rounded-lg bg-red-50 p-4 ring-1 ring-red-100">
+          <div class="flex">
+            <i class="fas fa-exclamation-triangle text-red-600 mr-2 mt-1"></i>
+            <p class="text-sm text-red-700">Ao excluir sua conta, todos os seus dados serão permanentemente removidos.</p>
+          </div>
+        </div>
+        <div class="mt-5">
+          <%= button_to "Excluir minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza?" }, method: :delete, class: "rounded-lg bg-white ring-1 ring-red-200 px-3 py-2 text-sm font-semibold text-red-600 shadow-sm hover:bg-red-50 hover:text-red-700 transition-all" %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+</div>
